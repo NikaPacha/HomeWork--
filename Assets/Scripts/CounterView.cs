@@ -8,6 +8,7 @@ public class CounterView : MonoBehaviour
     private Counter _counter = new Counter();
     private Coroutine _counterCoroutine = null;
     public bool isCounting = false;
+    private float _waitTime = 0.5f;
 
     public void StartCounter()
     {
@@ -32,7 +33,7 @@ public class CounterView : MonoBehaviour
     {
         while (enabled)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_waitTime);
             if (_counterText != null)
             {
                 _counter.Increment();
